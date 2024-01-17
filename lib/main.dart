@@ -3,12 +3,20 @@ import 'package:ecommerce_final/pages/home.dart';
 import 'package:ecommerce_final/pages/login.dart';
 import 'package:ecommerce_final/pages/onBoard.dart';
 import 'package:ecommerce_final/pages/signup.dart';
+import 'package:ecommerce_final/widget/app_constant.dart';
+import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_core/firebase_core.dart';
+
+
 import 'package:flutter/material.dart';
+
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
+  
+  Firebase.initializeApp();
   await Firebase.initializeApp();
+  await FirebaseAppCheck.instance.activate();
   runApp(const MyApp());
 }
 

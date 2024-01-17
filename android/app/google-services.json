@@ -1,4 +1,4 @@
- {
+{
   "project_info": {
     "project_number": "463085609212",
     "project_id": "fooddeliveryapp-18c17",
@@ -7,7 +7,7 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:463085609212:android:994fdb835de7265da7b779",
+        "mobilesdk_app_id": "1:463085609212:android:2bd3f35f832df296a7b779",
         "android_client_info": {
           "package_name": "com.example.ecommerce_final"
         }
