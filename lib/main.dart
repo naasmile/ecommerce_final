@@ -1,3 +1,5 @@
+import 'package:ecommerce_final/admin/admin_login.dart';
+import 'package:ecommerce_final/admin/home_admin.dart';
 import 'package:ecommerce_final/pages/bottomnav.dart';
 import 'package:ecommerce_final/pages/home.dart';
 import 'package:ecommerce_final/pages/login.dart';
@@ -47,7 +49,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: Onboard()
+      home: HomeAdmin()
     );
   }
 }
