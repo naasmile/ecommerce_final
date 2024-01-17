@@ -1,7 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ecommerce_final/service/database.dart';
 import 'package:ecommerce_final/service/shared_pref.dart';
 import 'package:ecommerce_final/widget/widget_support.dart';
 import 'package:flutter/material.dart';
+
 
 class Details extends StatefulWidget {
   String image, name, detail, price;
@@ -16,39 +18,31 @@ class Details extends StatefulWidget {
 }
 
 class _DetailsState extends State<Details> {
-  int a = 1, total=0;
+  int a = 1, total = 0;
   String? id;
 
-getthesharedpref()async{
-id= await SharedPreferenceHelper().getUserId();
-setState(() {
-  
-});
-}
+  getthesharedpref() async {
+    id = await SharedPreferenceHelper().getUserId();
+    setState(() {});
+  }
 
-ontheload()async{
-  await getthesharedpref();
-  setState(() {
-    
-  });
+  ontheload() async {
+    await getthesharedpref();
+    setState(() {});
+  }
 
-}
-
-@override
+  @override
   void initState() {
     super.initState();
     ontheload();
-    total=int.parse(widget.price);
+    total = int.parse(widget.price);
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        margin: EdgeInsets.only(
-          top: 50.0,
-          left: 20.0,
-          right: 20,
-        ),
+        margin: EdgeInsets.only(top: 50.0, left: 20.0, right: 20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -112,7 +106,7 @@ ontheload()async{
                 GestureDetector(
                   onTap: () {
                     ++a;
-                    total=total+int.parse(widget.price);
+                    total = total + int.parse(widget.price);
                     setState(() {});
                   },
                   child: Container(
@@ -127,13 +121,16 @@ ontheload()async{
                 )
               ],
             ),
+            SizedBox(
+              height: 20.0,
+            ),
             Text(
               widget.detail,
               maxLines: 4,
               style: AppWidget.LightTextFeildStyle(),
             ),
             SizedBox(
-              height: 20.0,
+              height: 30.0,
             ),
             Row(
               children: [
@@ -142,7 +139,7 @@ ontheload()async{
                   style: AppWidget.semiBoldTextFeildStyle(),
                 ),
                 SizedBox(
-                  width: 5.0,
+                  width: 25.0,
                 ),
                 Icon(
                   Icons.alarm,
@@ -171,24 +168,24 @@ ontheload()async{
                         style: AppWidget.semiBoldTextFeildStyle(),
                       ),
                       Text(
-                        "\$"+total.toString(),
+                        "\$" + total.toString(),
                         style: AppWidget.HeadlinTextFeildStyle(),
                       )
                     ],
                   ),
                   GestureDetector(
-                    onTap: ()async{
-                      Map<String, dynamic> addFoodtoCart={
-                        "Name":widget.name,
-                        "Quantity":a.toString(),
-                        "Total":total.toString(),
-                        "Image":widget.image
+                    onTap: () async {
+                      Map<String, dynamic> addFoodtoCart = {
+                        "Name": widget.name,
+                        "Quantity": a.toString(),
+                        "Total": total.toString(),
+                        "Image": widget.image
                       };
                       await DatabaseMethods().addFoodToCart(addFoodtoCart, id!);
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                           backgroundColor: Colors.orangeAccent,
                           content: Text(
-                            "Food added to Cart",
+                            "Food Added to Cart",
                             style: TextStyle(fontSize: 18.0),
                           )));
                     },
