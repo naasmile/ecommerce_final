@@ -104,7 +104,7 @@ class _HomeState extends State<Home> {
             shrinkWrap: true,
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index){
-            DocumentSnapshot ds=snapshot.data.docs[index];
+            DocumentSnapshot ds = snapshot.data.docs[index];
             return GestureDetector(
                     onTap: () {
                       Navigator.push(context, 
@@ -124,9 +124,9 @@ class _HomeState extends State<Home> {
                               borderRadius: BorderRadius.circular(20),
                               child: Image.network(                               
                                 ds["Image"], 
-                              height: 150, 
-                              width: 150, 
-                              fit: BoxFit.cover,
+                                height: 150, 
+                                width: 150, 
+                                fit: BoxFit.cover,
                               ),
                             ),
                             Text(ds["Name"], 
@@ -157,54 +157,54 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        margin: EdgeInsets.only(top: 50.0, left: 20.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      body: SingleChildScrollView(
+        child: Container(
+          margin: EdgeInsets.only(top: 50.0, left: 20.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              "Hello Sokheang,", 
-              style:AppWidget.boldTextFeildStyle(),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "Hello Sokheang,", 
+                style:AppWidget.boldTextFeildStyle(),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(right: 20.0),
+                    padding: EdgeInsets.all(3),
+                    decoration: BoxDecoration(color: Colors.black, borderRadius: BorderRadius.circular(10)),
+                child: Icon(
+                  Icons.shopping_cart_outlined, 
+                  color: Colors.white,
+                  ),
+                ) 
+                ],
+              ),
+              SizedBox(
+                height: 20.0,
+                ),
+              Text("Delicious Food", 
+              style:AppWidget.HeadlinTextFeildStyle()),
+              Text("Discover and Get Great Food", 
+                style:AppWidget.LightTextFeildStyle()),
+                SizedBox(height: 20.0,
                 ),
                 Container(
                   margin: EdgeInsets.only(right: 20.0),
-                  padding: EdgeInsets.all(3),
-                  decoration: BoxDecoration(color: Colors.black, borderRadius: BorderRadius.circular(10)),
-              child: Icon(
-                Icons.shopping_cart_outlined, 
-                color: Colors.white,
+                  child: showItem()),
+                SizedBox(
+                  height: 30.0,
                 ),
-              )
+                Container(
+                  height: 270,
+                  child: allItems()),
+                SizedBox(
+                  height: 30.0,
+                ),  
+                allItemsVertically(),    
               ],
-            ),
-            SizedBox(
-              height: 20.0,
-              ),
-            Text("Delicious Food", 
-            style:AppWidget.HeadlinTextFeildStyle()),
-            Text("Discover and Get Great Food", 
-              style:AppWidget.LightTextFeildStyle()),
-              SizedBox(height: 20.0,
-              ),
-              Container(
-                margin: EdgeInsets.only(right: 20.0),
-                child: showItem()),
-              SizedBox(
-                height: 30.0,
-              ),
-              Container(
-                height: 270,
-                child: allItems()),
-              SizedBox(
-                height: 30.0,
-              ),
-              
-              
-              allItemsVertically(),    
-            ],
+          ),
         ),
       ),
     );
