@@ -66,6 +66,7 @@ class _OrderState extends State<Order> {
                 ),
               ),
             ),
+            Spacer(),
               Divider(),
               Padding(
                 padding: const EdgeInsets.only(left: 10.0, right: 10.0),
@@ -88,7 +89,7 @@ class _OrderState extends State<Order> {
                 padding: EdgeInsets.symmetric(vertical: 10.0),
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(color: Colors.black, borderRadius: BorderRadius.circular(10)),
-                margin: EdgeInsets.only(left: 20.0, right: 20.0),
+                margin: EdgeInsets.only(left: 20.0, right: 20.0, bottom: 20.0),
                 child: Center(child: Text("CheckOut", style: TextStyle(color: Colors.white, fontSize: 20.0, fontWeight: FontWeight.bold),)),
               )
         ],)
