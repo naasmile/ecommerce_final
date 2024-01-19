@@ -16,7 +16,9 @@ class _OrderState extends State<Order> {
     return  Scaffold(
       body: Container(
         padding: EdgeInsets.only(top: 60.0),
-        child: Column(children: [
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
           Material(
               elevation: 2.0,
               child: Container(
@@ -39,7 +41,9 @@ class _OrderState extends State<Order> {
                 child: Container(
                   decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
                   padding: EdgeInsets.all(10),
-                  child: Row(children: [
+                  child: Row(
+                    
+                    children: [
                     Container(
                       height: 70,
                       width: 30,
@@ -49,13 +53,46 @@ class _OrderState extends State<Order> {
                     SizedBox(width: 20.0,),
                     ClipRRect(
                       borderRadius: BorderRadius.circular(60),
-                      child: Image.asset("images/food.jpg", height: 90, width: 90, fit: BoxFit.cover,))
+                      child: Image.asset("images/food.jpg", height: 90, width: 90, fit: BoxFit.cover,)),
+                      SizedBox(width: 20.0,),
+                      Column(
+                        children: [
+                          Text("Pizza", style: AppWidget.semiBoldTextFeildStyle(),),
+                          Text("\$40", style: AppWidget.semiBoldTextFeildStyle(),)
+                        ],
+                      )
                 ],
                 ),
                 ),
               ),
-            )
-        ],),
+            ),
+              Divider(),
+              Padding(
+                padding: const EdgeInsets.only(left: 10.0, right: 10.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                    "Total Price",
+                    style: AppWidget.boldTextFeildStyle(),
+                                ),
+                    Text(
+                    "\$50.0",
+                    style: AppWidget.semiBoldTextFeildStyle(),
+                  )
+                  ],
+                ),
+              ),
+              SizedBox(height: 20.0,),
+              Container(
+                padding: EdgeInsets.symmetric(vertical: 10.0),
+                width: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(color: Colors.black, borderRadius: BorderRadius.circular(10)),
+                margin: EdgeInsets.only(left: 20.0, right: 20.0),
+                child: Center(child: Text("CheckOut", style: TextStyle(color: Colors.white, fontSize: 20.0, fontWeight: FontWeight.bold),)),
+              )
+        ],)
+        ,
       ),
     );
   }
