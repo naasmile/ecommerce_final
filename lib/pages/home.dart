@@ -220,7 +220,7 @@ class _HomeState extends State<Home> {
                     pizza=false;
                     salad=false;
                     burger=false;
-                    fooditemStream= await DatabaseMethods().getFoodItem("Ice-Cream");
+                    fooditemStream= await DatabaseMethods().getFoodItem("Ice-cream");
                     setState(() {
                       
                     });
