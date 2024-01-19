@@ -115,7 +115,7 @@ class _SignUpState extends State<SignUp> {
                           borderRadius: BorderRadius.circular(20)),
                       child: Form(
                         key: _formkey,
-                        child: Column(
+                        child: ListView(
                           children: [
                             SizedBox(height: 30.0),
                             Text(
