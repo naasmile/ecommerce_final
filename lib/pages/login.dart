@@ -79,7 +79,7 @@ class _LogInState extends State<LogIn> {
             ),
             Container(
               margin: EdgeInsets.only(top: 60.0, left: 20.0, right: 20.0),
-              child: Column(
+              child: ListView(
                 children: [
                   Center(
                       child: Image.asset(
@@ -102,7 +102,7 @@ class _LogInState extends State<LogIn> {
                           borderRadius: BorderRadius.circular(20)),
                       child: Form(
                         key: _formkey,
-                        child: Column(
+                        child: ListView(
                           children: [
                             SizedBox(
                               height: 30.0,

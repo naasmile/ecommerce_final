@@ -78,7 +78,7 @@ class _OrderState extends State<Order> {
                     style: AppWidget.boldTextFeildStyle(),
                                 ),
                     Text(
-                    "\$50.0",
+                    "\$40.0",
                     style: AppWidget.semiBoldTextFeildStyle(),
                   )
                   ],
